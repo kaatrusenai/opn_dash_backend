@@ -57,6 +57,40 @@ exports.signin = (req,res) => {
     
 }
 
+//Validate
+exports.auth = (req,res) => {
+    const errors = validationResult(req);
+    const {email, password} = req.body;
+
+    if (!errors.isEmpty()) {
+        return res.status(422).json({
+          error: errors.array()[0].msg
+        });
+    }
+
+    dashusercred.findOne({email}, (err,user) => {
+        if (err || !user) {
+            return res.status(400).json({
+              error: "USER email does not exists"
+            });
+        }
+
+        if (!user.autheticate(password)) {
+            return res.status(401).json({
+              error: "Email and password do not match"
+            });
+        }
+
+        if(user.autheticate(password)){
+            return res.status(400).json({
+                msg: "Verification Successful"
+            })
+        }
+    })
+
+
+}
+
 //SIGNOUT
 exports.signout = (req,res) => {
     res.clearCookie("token");
