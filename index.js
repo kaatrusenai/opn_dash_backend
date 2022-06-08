@@ -7,9 +7,8 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const authRoutes = require("./Routes/auth.js")
-const userRoutes = require("./Routes/user.js")
 
-const uri = "mongodb://flutterdeploy:" + encodeURIComponent('Read11#') + "@35.154.147.81:27017/admin"
+const uri = "mongodb://flutterdeploy:" + encodeURIComponent("Read11#") + "@35.154.147.81:27017/admin"
  
 
 //Database Connection
@@ -31,7 +30,6 @@ app.use(cors())
 
 //Routes
 app.use("/api", authRoutes)
-app.use("/api", userRoutes)
 
 const port = 8000;
 

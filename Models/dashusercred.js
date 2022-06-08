@@ -38,10 +38,10 @@ userSchema.virtual("password")
 
 userSchema.methods = {
     autheticate: function(plainpassword) {
-        return this.securePassword(plainpassword) === this.encry_password;
+        return this.securedPassword(plainpassword) === this.encry_password;
       },
     
-      securePassword: function(plainpassword) {
+      securedPassword: function(plainpassword) {
         if (!plainpassword) return "";
         try {
           return crypto
