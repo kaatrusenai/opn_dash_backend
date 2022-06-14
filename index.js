@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const authRoutes = require("./Routes/auth.js")
+const ticketRoutes = require("./Routes/tickets.js")
 
 const uri = "mongodb://flutterdeploy:" + encodeURIComponent('Read11#') + "@35.154.147.81:27017/admin"
  
@@ -30,6 +31,7 @@ app.use(cors())
 
 //Routes
 app.use("/api", authRoutes)
+app.use("/api",ticketRoutes)
 
 const port = 8000;
 
