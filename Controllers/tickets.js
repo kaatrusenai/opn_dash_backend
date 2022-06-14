@@ -25,8 +25,7 @@ exports.getAllTickets = (req, res) => {
     })
 }
 
-exports.getTicketsByStatus = (req, res) => {
-    console.log(req.params.status)
+exports.getTicketsByStatus = (req, res) => { 
     Tickets.find({ticketStatus: req.params.status}).exec((err, tickets) => {
         if(err){
             return res.status(400).json({
