@@ -12,7 +12,7 @@ const ticketSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        default: " ",
+        default: "",
         maxlength: [20, "Invalid Category"],
         minlength: 2,
         trim:true
@@ -36,11 +36,6 @@ const ticketSchema = new mongoose.Schema({
         maxlength: 10,
         minlength: 1,
         trim:true
-    },
-    ticketID: {
-        unique: true,
-        trim: true,
-        type: Number,
     },
     ticketStatus: {
         type: String,
